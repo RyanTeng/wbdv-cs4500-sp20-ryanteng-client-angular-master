@@ -2,16 +2,20 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class CourseServiceClient {
-  findAllCourses = () =>
-    fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/courses')
-      .then(response => response.json());
-  findCourseById = cid =>
-    fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/courses/' + cid)
-      .then(response => response.json());
-  findModulesForCourse = cid =>
-    fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/courses/' + cid + '/modules')
-      .then(response => response.json());
-  findLessonsForModule = mid =>
-    fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/modules/' + mid + '/lessons')
-      .then(response => response.json());
+  findAllCourses = async () => {
+    const response = await fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/courses');
+    return await response.json();
+  };
+  findCourseById = async (cid) => {
+    const response = await fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/courses/' + cid);
+    return await response.json();
+  };
+  findModulesForCourse = async(cid) => {
+    const response = await fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/courses/' + cid + '/modules');
+    return await response.json();
+  }
+  findLessonsForModule = async(mid) => {
+    const response = await fetch('http://wbdv-generic-server.herokuapp.com/api/001642349/modules/' + mid + '/lessons');
+    return await response.json();
+  }
 }
