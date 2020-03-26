@@ -1,0 +1,15 @@
+<h3>Lesson Tabs</h3>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th
+      [class]="{'active': lesson._id === lessonId}"
+      *ngFor="let lesson of lessons">
+        <a routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson._id}}">
+          {{lesson.title}}
+        </a>
+      </th>
+    </tr>
+  </table>
+</div>
