@@ -7,11 +7,9 @@
     class="form-control new-course-title"
     placeholder="Enter new course title"
   />
-  <a href="course">
-    <i (click)="createCourse(newCourseTitle)"
-      class="fa fa-2x fa-plus text-white pointer ml-3"
-    ></i>
-  </a>
+  <button (click)="createCourse(newCourseTitle)">
+    Create
+  </button>
 </nav>
 
 
@@ -24,7 +22,9 @@
       <th scope="col" class="d-none d-md-table-cell">
         Options
       </th>
-      <th scope="col" class="text-right"></th>
+      <th scope="col">
+        Quizzes
+      </th>
     </tr>
     </thead>
     <tbody>
@@ -38,6 +38,12 @@
           <button (click)="deleteCourse(course)">
             Delete
           </button>
+        </td>
+        <td>
+          <a
+             href="/courses/{{course._id}}/quizzes">
+            Quizzes
+          </a>
         </td>
       </tr>
     </tbody>
