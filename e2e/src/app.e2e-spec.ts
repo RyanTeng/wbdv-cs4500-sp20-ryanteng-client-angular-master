@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('wbdv-sp20-jannunzi-client-angular app is running!');
+    expect(page.getTitleText()).toEqual('wbdv-sp20-001642349-client-angular app is running!');
   });
 
   afterEach(async () => {

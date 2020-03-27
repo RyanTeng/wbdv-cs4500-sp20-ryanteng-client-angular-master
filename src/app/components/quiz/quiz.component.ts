@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {QuestionServiceClient} from '../../services/QuestionServiceClient';
 
 @Component({
   selector: 'app-quiz',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
-  constructor() { }
 
+  constructor(private svc: QuestionServiceClient,
+              private route: ActivatedRoute) { }
+  questions = [];
+  quizId = '';
   ngOnInit(): void {
+    this.route.params.subscribe(ps => {
+      this.quizId = ps.quizId;
+      this.svc.findQuestionsForQuiz(this.quizId)
+        .then(qs => this.questions = qs);
+    })
   }
+
 
 }

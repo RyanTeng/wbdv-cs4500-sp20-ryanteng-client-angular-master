@@ -12,11 +12,11 @@ export class CourseViewerComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private service: CourseServiceClient) { }
 
-  courseId = ''
+  courseId = '';
   course = {
     _id: '',
     title: ''
-  }
+  };
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.courseId = params.cid;
