@@ -16,7 +16,8 @@ export class QuizComponent implements OnInit {
   quizId = '';
   ngOnInit(): void {
     this.route.params.subscribe(ps => {
-      this.quizId = ps.quizId;
+      console.log(ps);
+      this.quizId = ps.qid;
       this.svc.findQuestionsForQuiz(this.quizId)
         .then(qs => this.questions = qs);
     })

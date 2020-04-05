@@ -4,7 +4,7 @@
   <ul class="list-group">
     <li class="list-group-item"
         *ngFor="let quiz of quizzes">
-      <a href="course/{{courseId}}/quizzes/{{quiz._id}}">
+      <a href="courses/{{courseId}}/quizzes/{{quiz._id}}">
         {{quiz.title}}
       </a>
       <button (click)="deleteQuiz(quiz)">

@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class QuizzesServiceClient {
   createQuiz = (cid) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/001642349/courses/${cid}/quizzes`, {
+    fetch(`http://localhost:3000/api/quizzes`, {
       method: 'post',
       body: JSON.stringify({title: 'New Quiz'}),
       headers: {
@@ -12,11 +12,11 @@ export class QuizzesServiceClient {
     })
       .then(response => response.json())
   findAllQuizzes = (cid) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/001642349/courses/${cid}/quizzes`)
+    fetch(`http://localhost:3000/api/quizzes`)
       .then(response => response.json())
 
-  deleteQuiz = (cid, id) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/001642349/courses/${cid}/quizzes/${id}`, {
+  deleteQuiz = (cid, qid) =>
+    fetch(`http://localhost:3000/api/quizzes/${qid}`, {
       method: 'delete'
     })
   // .then(response => response.json())
