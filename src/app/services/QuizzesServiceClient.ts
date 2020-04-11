@@ -10,10 +10,10 @@ export class QuizzesServiceClient {
         'content-type': 'application/json'
       }
     })
-      .then(response => response.json())
+      .then(response => response.json());
   findAllQuizzes = (cid) =>
     fetch(`http://localhost:3000/api/quizzes`)
-      .then(response => response.json())
+      .then(response => response.json());
 
   deleteQuiz = (cid, qid) =>
     fetch(`http://localhost:3000/api/quizzes/${qid}`, {

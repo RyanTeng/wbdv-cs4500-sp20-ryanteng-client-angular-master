@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CourseServiceClient} from '../../services/CourseServiceClient';
 
@@ -11,9 +11,12 @@ import {CourseServiceClient} from '../../services/CourseServiceClient';
 export class TrueFalseQuestionComponent implements OnInit {
 
   @Input()
-  question = {_id: '', title: '', question: '', answer: '', correct: ''};
+  question = {_id: '', title: '', question: '', choices: [], answer: '', correct: ''};
   grading = false;
+  @Input()
   answer = '';
+  @Output()
+  answerChange = new EventEmitter<string>();
 
   grade = () => { this.grading = true }
 
